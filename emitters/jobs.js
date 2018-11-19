@@ -8,6 +8,11 @@ var Job = function Job() {
             job.emit('done', {date: new Date()});
         }, 1000);
     };
+
+    job.on('start', function () {
+        job.process();
+    });
+
 };
 
 util.inherits(Job, events.EventEmitter);
